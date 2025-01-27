@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: schedule_app
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - schedule_api
+    env_file:
+      - .env
+      
+networks:
+  schedule_api:
+    driver: bridge
